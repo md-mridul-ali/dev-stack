@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import type { IStack } from "../types/stackTypes";
 import { BsFillStarFill } from "react-icons/bs";
+import { toast } from 'react-toastify';
 
-const StackCard = ({ stack }: { stack: IStack }) => {
+const StackCard = ({ stack, count, setCount}: { stack: IStack }) => {
   const [isSelected, setIsSelected] = useState(false);
+
+  function handleClick(){
+    setCount(count + 1);
+    setIsSelected(true)
+
+      toast.success(`${stack.name} added to your stack!`);
+  }
+
 
   return (
     <div className={` p-4 rounded-xl ${isSelected === true ? "border-2 border-[#d91b7db2]" : "border-2 border-gray-300"}`}>
@@ -29,7 +38,8 @@ const StackCard = ({ stack }: { stack: IStack }) => {
       </div>
       <div className="mt-6">
         <button
-          onClick={() => setIsSelected(true)}
+          // onClick={() => setIsSelected(true)}
+          onClick={handleClick}
           className={`btn btn-block rounded-xl ${
             isSelected
               ? "bg-[#efa4cbb4] text-[#D91B7E]"

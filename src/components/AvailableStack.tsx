@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, type Dispatch, type SetStateAction } from "react";
 import type { IStack } from "../types/stackTypes";
 import StackCard from "./StackCard";
 import SelectedStack from "./SelectedStack";
@@ -6,11 +6,19 @@ import SelectedStack from "./SelectedStack";
 
 interface stackProps {
   stackPromise: Promise<IStack[]>;
+  count:number;
+  setCount:Dispatch<SetStateAction<number>>
 }
 
-const AvailableStack = ({ stackPromise }: stackProps) => {
+const AvailableStack = ({ stackPromise, count, setCount }: stackProps) => {
   const stacks = use(stackPromise);
   console.log(stacks);
+
+  // const [count, setCount] = useState(0);
+
+  // function updateCount(count:number){
+  //     setCount(count + 1)
+  // }
 
   return (
     // <div>
@@ -49,11 +57,11 @@ const AvailableStack = ({ stackPromise }: stackProps) => {
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="lg:col-span-8 xl:col-span-9 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
           {stacks.map((stack: IStack) => (
-            <StackCard key={stack.id} stack={stack} />
+            <StackCard key={stack.id} stack={stack} count={count} setCount={setCount}/>
           ))}
         </div>
         <div className="lg:col-span-4 xl:col-span-3 px-4 py-6 border-2 border-gray-300 rounded-xl">
-          <SelectedStack />
+          <SelectedStack count={count} setCount={setCount}/>
         </div>
       </div>
     </div>
