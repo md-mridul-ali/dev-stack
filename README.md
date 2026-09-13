@@ -6,7 +6,6 @@ Dev Stack is a modern and responsive technology stack builder for developers. It
 
 [Dev Stack](https://endearing-cendol-960138.netlify.app/)
 
-
 ## 🛠️ Technologies Used
 
 - React.js
@@ -54,6 +53,7 @@ In this project, it is used in the `AvailableStack` component to store the selec
 
 ```tsx
 const [selectedStacks, setSelectedStacks] = useState<IStack[]>([]);
+```
 
 ### 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
 
@@ -65,30 +65,45 @@ In this project, I used `useEffect` to load the technology data from the JSON fi
 useEffect(() => {
   setStacks(technologyData);
 }, []);
+```
 
 ### 5. Why does every item in a `.map()` list need a unique `key` prop?
 
-TThe `key` prop helps React identify each item in a list. It allows React to efficiently update, add, or remove items when the list changes.
+The `key` prop helps React identify each item in a list. It allows React to efficiently update, add, or remove items when the list changes.
 
 ```tsx
 {stacks.map((stack) => (
   <StackCard key={stack.id} stack={stack} />
 ))}
+```
 
 ### 6. What is conditional rendering? Show one place you used it.
 
 Conditional rendering means displaying different UI elements based on a condition.
 
-In this project, I used conditional rendering to change Button Border and background color when user click `Add to Stack`.
+In this project, I used conditional rendering to change the border color of a technology card when the user clicks **Add to Stack**.
 
 ```tsx
-<div className={` p-4 rounded-xl ${isSelected === true ? "border-2 border-[#d91b7db2]" : "border-2 border-gray-300"}`}>
-      <div className="flex justify-between items-center">
-        <img className="h-[40px] w-[40px]" src={stack.icon} alt="logo"></img>
-        <button className="bg-[#E0F2FE] text-[#0EA5E9] rounded-4xl py-1 px-5">
-          {stack.badge}
-        </button>
-<div>
+<div
+  className={`p-4 rounded-xl ${
+    isSelected === true
+      ? "border-2 border-[#d91b7db2]"
+      : "border-2 border-gray-300"
+  }`}
+>
+  <div className="flex justify-between items-center">
+    <img
+      className="h-[40px] w-[40px]"
+      src={stack.icon}
+      alt={stack.name}
+    />
+
+    <button className="bg-[#E0F2FE] text-[#0EA5E9] rounded-4xl py-1 px-5">
+      {stack.badge}
+    </button>
+  </div>
+</div>
+```
 
 ### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
 
@@ -96,9 +111,17 @@ A parent component passes data to a child component through props.
 
 A child component can send information or trigger an action in the parent by calling a function received through props.
 
+```tsx
+<StackCard
+  stack={stack}
+  onAdd={handleAddStack}
+/>
+```
+
+Here, `stack` is passed from the parent component to the child component, while `onAdd` allows the child component to trigger an action in the parent component.
+
+---
 
 ## 👨‍💻 Author
 
 ### Developed by MD. Mridul Ali
-
-

@@ -6,17 +6,21 @@ import { toast } from 'react-toastify';
 interface ICount{
   stack:IStack;
   count:number;
-  setCount:Dispatch<SetStateAction<number>>
+  setCount:Dispatch<SetStateAction<number>>;
+  selectedStack:IStack[];
+  setSelectedStack:Dispatch<SetStateAction<IStack[]>>
 }
 
-const StackCard = ({ stack, count, setCount}: ICount) => {
+const StackCard = ({ stack, count, setCount, selectedStack, setSelectedStack}: ICount) => {
   const [isSelected, setIsSelected] = useState(false);
 
-  function handleClick(){
+  //test
+
+  function handleClick(stackData:IStack) {
     setCount(count + 1);
     setIsSelected(true)
-
-      toast.success(`${stack.name} added to your stack!`);
+    setSelectedStack([...selectedStack, stackData]);
+    toast.success(`${stack.name} added to your stack!`);
   }
 
 
@@ -44,8 +48,8 @@ const StackCard = ({ stack, count, setCount}: ICount) => {
       </div>
       <div className="mt-6">
         <button
-          // onClick={() => setIsSelected(true)}
-          onClick={handleClick}
+          onClick={() => handleClick(stack)}
+          // onClick={handleClick}
           className={`btn btn-block rounded-xl ${
             isSelected
               ? "bg-[#efa4cbb4] text-[#D91B7E]"

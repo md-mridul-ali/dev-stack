@@ -18,12 +18,18 @@ function App() {
 
   const [count, setCount] = useState(0); 
 
+  //test
+   const [selectedStack, setSelectedStack] = useState<IStack[]>([]);
+
   return (
     <>
       <Navbar></Navbar>
       <Banner></Banner>
       <Suspense fallback={<span className="loading loading-spinner loading-xl"></span>}>
-        <AvailableStack stackPromise={stackPromise}  count={count} setCount={setCount}></AvailableStack>
+        <AvailableStack
+         stackPromise={stackPromise}  count={count} setCount={setCount} selectedStack={selectedStack} setSelectedStack={setSelectedStack}
+        >
+        </AvailableStack>
       </Suspense>
       <Footer></Footer>
       <ToastContainer />
