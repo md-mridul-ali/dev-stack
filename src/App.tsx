@@ -5,6 +5,7 @@ import Banner from "./components/Banner";
 import Navbar from "./components/Navbar";
 import type { IStack } from "./types/stackTypes";
 import { ToastContainer, toast } from 'react-toastify';
+import Footer from "./components/Footer";
 
 //data fatching using asyn await arrow function
   const stackFetch = async () : Promise<IStack[]> => {
@@ -24,6 +25,7 @@ function App() {
       <Suspense fallback={<span className="loading loading-spinner loading-xl"></span>}>
         <AvailableStack stackPromise={stackPromise}  count={count} setCount={setCount}></AvailableStack>
       </Suspense>
+      <Footer></Footer>
       <ToastContainer />
     </>
   );

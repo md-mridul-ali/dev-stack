@@ -28,7 +28,7 @@ const Banner = () => {
     //     <img src={bannerLogo} alt=""></img>
     //   </div>
     // </div>
-    <div className="mt-8 mb-8 border-2 border-pink-300 rounded-2xl p-6 md:p-8 lg:p-10 flex flex-col lg:flex-row justify-between items-center gap-10">
+    <div className="mt-8 mb-8 rounded-2xl p-6 md:p-8 lg:p-10 flex flex-col lg:flex-row justify-between items-center gap-10">
       <div className="w-full lg:w-3/5 text-center lg:text-left">
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0F172A]">
           Build Your Ideal
