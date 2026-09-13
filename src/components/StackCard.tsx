@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import type { IStack } from "../types/stackTypes";
 import { BsFillStarFill } from "react-icons/bs";
 
 const StackCard = ({ stack }: { stack: IStack }) => {
+  const [isSelected, setIsSelected] = useState(false);
+
   return (
-    <div className="bg-[#F1F5F9] p-4 rounded-xl">
+    <div className={` p-4 rounded-xl ${isSelected === true ? "border-2 border-[#d91b7db2]" : "border-2 border-gray-300"}`}>
       <div className="flex justify-between items-center">
         <img className="h-[40px] w-[40px]" src={stack.icon} alt="logo"></img>
-        <button className="bg-[#E0F2FE] text-[#0EA5E9] rounded-4xl py-1 px-5">{stack.badge}</button>
+        <button className="bg-[#E0F2FE] text-[#0EA5E9] rounded-4xl py-1 px-5">
+          {stack.badge}
+        </button>
       </div>
       <h3 className="text=[16px]">{stack.name}</h3>
       <p className="text-[#64748B] font-normal">{stack.description}</p>
       <div className="flex justify-between items-center mt-2">
-        <div className="p-1 bg-[#dde0e5f1] rounded">
+        <div className="px-4 py-1 bg-[#dde0e593] rounded">
           <button className="text-[#475569]">{stack.category}</button>
         </div>
         <div>
@@ -23,9 +27,19 @@ const StackCard = ({ stack }: { stack: IStack }) => {
           <button className="ml-2">{stack.rating}</button>
         </div>
       </div>
-     <div className="mt-6">
-      <button className="btn btn-block rounded-xl bg-[#0A0F1D] text-white ">Add to Stack</button>
-    </div>
+      <div className="mt-6">
+        <button
+          onClick={() => setIsSelected(true)}
+          className={`btn btn-block rounded-xl ${
+            isSelected
+              ? "bg-[#efa4cbb4] text-[#D91B7E]"
+              : "bg-[#0A0F1D] text-white"
+          }`}
+          disabled={isSelected}
+        >
+          Add to Stack
+        </button>
+      </div>
     </div>
   );
 };
