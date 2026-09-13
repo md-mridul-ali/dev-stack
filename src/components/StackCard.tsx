@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 import type { IStack } from "../types/stackTypes";
 import { BsFillStarFill } from "react-icons/bs";
 import { toast } from 'react-toastify';
 
-const StackCard = ({ stack, count, setCount}: { stack: IStack }) => {
+interface ICount{
+  stack:IStack;
+  count:number;
+  setCount:Dispatch<SetStateAction<number>>
+}
+
+const StackCard = ({ stack, count, setCount}: ICount) => {
   const [isSelected, setIsSelected] = useState(false);
 
   function handleClick(){

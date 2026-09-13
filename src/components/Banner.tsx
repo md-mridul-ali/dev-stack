@@ -1,4 +1,4 @@
-import React from "react";
+
 import bannerLogo from "../assets/banner-stack.png";
 
 const Banner = () => {

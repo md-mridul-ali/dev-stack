@@ -1,11 +1,11 @@
-import React, { type Dispatch, type SetStateAction } from 'react';
+import { type Dispatch, type SetStateAction } from 'react';
 
 interface ICount{
     count:number;
     setCount:Dispatch<SetStateAction<number>>
 }
 
-const SelectedStack = ({count, setCount}:ICount) => {
+const SelectedStack = ({count}:ICount) => {
 
     console.log(count)
 

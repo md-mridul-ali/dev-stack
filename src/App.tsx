@@ -4,7 +4,7 @@ import AvailableStack from "./components/AvailableStack";
 import Banner from "./components/Banner";
 import Navbar from "./components/Navbar";
 import type { IStack } from "./types/stackTypes";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import Footer from "./components/Footer";
 
 //data fatching using asyn await arrow function

@@ -1,4 +1,4 @@
-import React, { use, type Dispatch, type SetStateAction } from "react";
+import { use, type Dispatch, type SetStateAction } from "react";
 import type { IStack } from "../types/stackTypes";
 import StackCard from "./StackCard";
 import SelectedStack from "./SelectedStack";
@@ -13,13 +13,6 @@ interface stackProps {
 const AvailableStack = ({ stackPromise, count, setCount }: stackProps) => {
   const stacks = use(stackPromise);
   console.log(stacks);
-
-  // const [count, setCount] = useState(0);
-
-  // function updateCount(count:number){
-  //     setCount(count + 1)
-  // }
-
   return (
     // <div>
     //   <div className="mb-8">
