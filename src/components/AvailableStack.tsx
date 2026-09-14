@@ -6,20 +6,21 @@ import SelectedStack from "./SelectedStack";
 
 interface stackProps {
   stackPromise: Promise<IStack[]>;
-  count:number;
-  setCount:Dispatch<SetStateAction<number>>
-  selectedStack:IStack[];
-  setSelectedStack:Dispatch<SetStateAction<IStack[]>>
+  count: number;
+  setCount: Dispatch<SetStateAction<number>>;
+  selectedStack: IStack[];
+  setSelectedStack: Dispatch<SetStateAction<IStack[]>>;
+  removeStack: (stack: IStack) => void;
 }
 
-const AvailableStack = ({ stackPromise, count, setCount, selectedStack, setSelectedStack }: stackProps) => {
+const AvailableStack = ({ stackPromise, count, setCount, selectedStack, setSelectedStack, removeStack }: stackProps) => {
   const stacks = use(stackPromise);
  
   return (
     <div>
       <div className="mb-8">
         <h2 className="text-[#0F172A] text-3xl sm:text-4xl font-extrabold">
-          Explore the
+          Explore the{" "}
           <span className="bg-gradient-to-r from-[#EC4899] to-[#8B5CF6] bg-clip-text text-transparent">
             Technologies
           </span>
@@ -35,7 +36,7 @@ const AvailableStack = ({ stackPromise, count, setCount, selectedStack, setSelec
           ))}
         </div>
         <div className="lg:col-span-4 xl:col-span-3 px-4 py-6 border-2 border-gray-300 rounded-xl">
-          <SelectedStack count={count} setCount={setCount} selectedStack={selectedStack} setSelectedStack={setSelectedStack}/>
+          <SelectedStack count={count} setCount={setCount} selectedStack={selectedStack} setSelectedStack={setSelectedStack} removeStack={removeStack}/>
         </div>
       </div>
     </div>

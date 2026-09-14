@@ -1,13 +1,21 @@
-import React from "react";
+
 import type { IStack } from "../types/stackTypes";
 import { ImCross } from "react-icons/im";
-
+import { toast } from 'react-toastify';
 interface ISelect {
   stack: IStack;
-  selectedStack:IStack[]
+  selectedStack: IStack[];
+  removeStack: (stack: IStack) => void;
 }
 
-const Select = ({ stack }: ISelect) => {
+const Select = ({ stack, removeStack }: ISelect) => {
+
+  // console.log(removeStack);
+
+  const handleRemove = () => {
+    removeStack(stack);
+    toast.success(`Successfully ${stack.name} removed from your stack!`);
+  };
 
   return (
     <div>
@@ -20,7 +28,7 @@ const Select = ({ stack }: ISelect) => {
           </div>
         </div>
         <div>
-          <button className="text-[#64748B]">
+          <button onClick={handleRemove} className="text-[#64748B]">
             <ImCross></ImCross>
           </button>
         </div>

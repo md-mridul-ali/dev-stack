@@ -19,7 +19,16 @@ function App() {
   const [count, setCount] = useState(0); 
 
   //test
-   const [selectedStack, setSelectedStack] = useState<IStack[]>([]);
+  const [selectedStack, setSelectedStack] = useState<IStack[]>([]);
+
+  const removeStack = (s:IStack) =>{
+  // console.log(p);
+  const filteredData = selectedStack.filter(ply => ply.id !== s.id)
+  console.log(filteredData);
+  setSelectedStack(filteredData);
+  // setAvailableBalance(availableBalance + p.price)
+}
+
 
   return (
     <>
@@ -27,7 +36,7 @@ function App() {
       <Banner></Banner>
       <Suspense fallback={<span className="loading loading-spinner loading-xl"></span>}>
         <AvailableStack
-         stackPromise={stackPromise}  count={count} setCount={setCount} selectedStack={selectedStack} setSelectedStack={setSelectedStack}
+         stackPromise={stackPromise}  count={count} setCount={setCount} selectedStack={selectedStack} setSelectedStack={setSelectedStack} removeStack={removeStack}
         >
         </AvailableStack>
       </Suspense>

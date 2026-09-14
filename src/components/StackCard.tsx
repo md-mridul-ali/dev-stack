@@ -20,15 +20,15 @@ const StackCard = ({ stack, count, setCount, selectedStack, setSelectedStack}: I
     setCount(count + 1);
     setIsSelected(true)
     setSelectedStack([...selectedStack, stackData]);
-    toast.success(`${stack.name} added to your stack!`);
+    toast.success(`Successfully ${stack.name} added to your stack!`);
   }
 
 
   return (
-    <div className={` p-4 rounded-xl ${isSelected === true ? "border-2 border-[#d91b7db2]" : "border-2 border-gray-300"}`}>
+    <div className={`p-4 rounded-xl ${isSelected === true ? "border-2 border-[#d91b7db2]" : "border-2 border-gray-300"}`}>
       <div className="flex justify-between items-center">
         <img className="h-[40px] w-[40px]" src={stack.icon} alt="logo"></img>
-        <button className="bg-[#E0F2FE] text-[#0EA5E9] rounded-4xl py-1 px-5">
+        <button className="bg-[#efa4cbb4] text-[#D91B7E] rounded-4xl py-1 px-5">
           {stack.badge}
         </button>
       </div>
