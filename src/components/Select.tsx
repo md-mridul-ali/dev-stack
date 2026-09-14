@@ -10,8 +10,6 @@ interface ISelect {
 
 const Select = ({ stack, removeStack }: ISelect) => {
 
-  // console.log(removeStack);
-
   const handleRemove = () => {
     removeStack(stack);
     toast.success(`Successfully ${stack.name} removed from your stack!`);

@@ -14,8 +14,6 @@ interface ICount{
 const StackCard = ({ stack, count, setCount, selectedStack, setSelectedStack}: ICount) => {
   const [isSelected, setIsSelected] = useState(false);
 
-  //test
-
   function handleClick(stackData:IStack) {
     setCount(count + 1);
     setIsSelected(true)

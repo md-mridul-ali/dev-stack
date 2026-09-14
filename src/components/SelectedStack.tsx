@@ -12,7 +12,6 @@ interface ICount {
 }
 
 const SelectedStack = ({ selectedStack, setSelectedStack, removeStack }: ICount) => {
-  //   console.log(selectedStack);
 
   const removeAllStack = () => {
   setSelectedStack([]);

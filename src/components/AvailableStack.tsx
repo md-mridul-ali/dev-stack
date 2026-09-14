@@ -2,7 +2,6 @@ import { use, type Dispatch, type SetStateAction } from "react";
 import type { IStack } from "../types/stackTypes";
 import StackCard from "./StackCard";
 import SelectedStack from "./SelectedStack";
-// import "./App.css";
 
 interface stackProps {
   stackPromise: Promise<IStack[]>;
@@ -18,7 +17,7 @@ const AvailableStack = ({ stackPromise, count, setCount, selectedStack, setSelec
  
   return (
     <div>
-      <div className="mb-8">
+      <div className="mb-8 p-4">
         <h2 className="text-[#0F172A] text-3xl sm:text-4xl font-extrabold">
           Explore the{" "}
           <span className="bg-gradient-to-r from-[#EC4899] to-[#8B5CF6] bg-clip-text text-transparent">

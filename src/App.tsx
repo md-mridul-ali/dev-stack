@@ -7,7 +7,7 @@ import type { IStack } from "./types/stackTypes";
 import { ToastContainer } from 'react-toastify';
 import Footer from "./components/Footer";
 
-//data fatching using asyn await arrow function
+
   const stackFetch = async () : Promise<IStack[]> => {
   const res = await fetch("/data.json");
   const data = await res.json();
@@ -22,11 +22,9 @@ function App() {
   const [selectedStack, setSelectedStack] = useState<IStack[]>([]);
 
   const removeStack = (s:IStack) =>{
-  // console.log(p);
   const filteredData = selectedStack.filter(ply => ply.id !== s.id)
   console.log(filteredData);
   setSelectedStack(filteredData);
-  // setAvailableBalance(availableBalance + p.price)
 }
 
 
