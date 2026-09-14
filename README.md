@@ -4,7 +4,7 @@ Dev Stack is a modern and responsive technology stack builder for developers. It
 
 ## 🌐 Live Website
 
-[Dev Stack](https://endearing-cendol-960138.netlify.app/)
+[Dev Stack](https://snazzy-gelato-d6ebf3.netlify.app/)
 
 ## 🛠️ Technologies Used
 
